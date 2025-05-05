@@ -1,0 +1,17 @@
+services:
+  frontend:
+    container_name: frontend
+    tty: true
+    stdin_open: true
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    ports:
+      - "3000:3333"
+    volumes:
+      - ./:/var/www/project/frontend
+    networks:
+      - shared_net
+networks:
+  shared_net:
+    external: true
